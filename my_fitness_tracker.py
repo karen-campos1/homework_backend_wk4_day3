@@ -124,7 +124,7 @@ def update_member(id):
 
 
 
-app.route("/members/<int:id>", methods=["DELETE"]) 
+@app.route("/members/<int:id>", methods=["DELETE"]) 
 def delete_member(id):
     try:
         conn = get_db_connection()
@@ -230,7 +230,7 @@ def update_workout(workout_id):
     
     try:
         cursor = conn.cursor()
-        query = "UPDATE Workouts SET date = %s, activity = %s, member_id = %s WHERE member_id = %s"
+        query = "UPDATE Workouts SET date = %s, activity = %s, member_id = %s WHERE workout_id = %s"
         date = workout_data["date"]
         activity = workout_data["activity"]
         member_id = workout_data["member_id"]
